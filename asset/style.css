@@ -71,14 +71,15 @@ h3{
 
 }
 
-a{
+.rightside a{
     text-decoration: none;
-    padding: 10px 10px;
+    padding: 5px 5px;
     border: 1px solid green;
     border-radius: 20px;
     background-color:#684DB6;
     box-shadow: 0 15px 25px rgba(163, 97, 53, 0.5);
     color: white;
+    margin-left: 10px;;
     
     
 }
@@ -156,7 +157,12 @@ span{
     margin: 10px ;
 
 }
-
+span:hover{
+    transform: translateY(-15%);
+    cursor: pointer;
+    background-color:;
+    background-color:#ee88bb ;
+}
 
 .footer{
     display:flex;

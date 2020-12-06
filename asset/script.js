@@ -67,14 +67,13 @@ var questionData = [
         correct:  "A",
     }
 ];
-
+var timeLeft = 90;
 // function to set the timer
 function quiz() {
-
-
-var timeLeft = 90;
 var min = 0;
-var sec = 0;
+    var sec = 0;
+//var timeLeft = 90;
+
 var counter = 0;
 var timeInterval = setInterval(function() {
     counter++;
@@ -143,6 +142,8 @@ function check(answer){
     
     var cAnswer = questionData[i].correct;
 if (answer == cAnswer && i < lastQuestion){
+
+   
     score+=10;
     scores.textContent = "score: " + score ;
     i++;
@@ -152,6 +153,10 @@ if (answer == cAnswer && i < lastQuestion){
 
 else if 
     (answer !== cAnswer && i < lastQuestion){
+        timeLeft -= 20;
+        if (timeLeft < 0) {
+            timeLeft = 0;
+        }
         score -= 10;
         scores.textContent = "score: " + score ;
         i++;

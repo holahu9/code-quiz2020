@@ -152,15 +152,15 @@ h3{
 span{
     padding: 10px 10px;
     border-radius: 15px;
-    border: 1px solid;
-    background-color: #679294;
+    /*border: 1px solid;*/
+    background-color: #59799e;
     margin: 10px ;
 
 }
 span:hover{
     transform: translateY(-15%);
     cursor: pointer;
-    background-color:;
+   
     background-color:#ee88bb ;
 }
 

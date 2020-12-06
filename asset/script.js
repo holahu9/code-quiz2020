@@ -141,7 +141,7 @@ else if
     else{ resultRender();
         box.style.display = "none"
         // end the quiz and show the score
-        clearInterval(timeInterval);
+       
         
     }
 }
@@ -153,6 +153,7 @@ function resultRender(){
     box.style.display= "none";
     box1.style.display = "block";
     finalScore.innerHTML = "Your Final Score is : "  +  score;
+
     
   }
 quiz();

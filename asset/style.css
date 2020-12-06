@@ -177,13 +177,19 @@ span:hover{
 
 .btn{
     padding:10px 10px;
-    font-size: xx-large;
+    font-size: x-large;
     background-color:#ed3e95 ;
     border: 0;
     border-radius: 5px;
     color: white;
     outline:none;
     margin-top: 30px;
+    cursor: pointer;
+}
+
+
+.btn:hover{
+    background-color: #684DB6 ;
 }
 
 .footer a {
@@ -202,7 +208,9 @@ span:hover{
     background-color: #684DB6 ;
 }
  #submit {
-    cursor: pointer;
+    
+    padding: 20px 20px;
+    border-radius: 20px;
 }
 
 

@@ -10,6 +10,8 @@ var box = document.querySelector(".box");
 var box1= document.querySelector("#resultScreen");
 var finalScore = document.querySelector(".finalScore");
 var initial = document.querySelector("#initials");
+var submit = document.querySelector("#submit");
+var highScores = [];
 
 var questionData = [
 
@@ -82,7 +84,22 @@ var timeInterval = setInterval(function() {
        resultRender(); 
     }
   }, 1000); // set 1 second interval //
-  givenQuestion();
+
+  // function for saving highscore
+  function saveHighScore() {
+   
+    let newHighScore = {
+        initials: initial.value,
+        highScore: score
+    };
+    console.log(newHighScore);
+    highScores.push(newHighScore);
+    console.log(highScores);
+    localStorage.setItem("scores",JSON.stringify(highScores));
+}
+submit.addEventListener("click",saveHighScore);
+
+givenQuestion();
 };
  
 
@@ -105,10 +122,8 @@ function givenQuestion(){
 }
 
 givenQuestion();
+
 // set index question =0 & revoke the function to display first question//
-
-
-
 
 function runningQuestion(){
     for (var index=0; index<= questionData.length; index++){
@@ -122,7 +137,7 @@ function check(answer){
     
     var cAnswer = questionData[i].correct;
 if (answer == cAnswer && i < lastQuestion){
-    score+=1;
+    score+=10;
     scores.textContent = "score: " + score ;
     i++;
     givenQuestion();
@@ -131,7 +146,7 @@ if (answer == cAnswer && i < lastQuestion){
 
 else if 
     (answer !== cAnswer && i < lastQuestion){
-        score -= 1;
+        score -= 10;
         scores.textContent = "score: " + score ;
         i++;
         givenQuestion();
@@ -153,8 +168,7 @@ function resultRender(){
     box.style.display= "none";
     box1.style.display = "block";
     finalScore.innerHTML = "Your Final Score is : "  +  score;
-
     
-  }
+    }
 quiz();
 

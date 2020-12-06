@@ -198,6 +198,10 @@ span:hover{
 .footer a:hover { 
     background-color: #684DB6 ;
 
+#submit {
+    cursor: pointer;
+}
+
 
 
 

@@ -13,6 +13,12 @@ var initial = document.querySelector("#initials");
 var submit = document.querySelector("#submit");
 var highScores = [];
 
+if (JSON.parse(localStorage.getItem('scores')) !== null) {
+    highScores = JSON.parse(localStorage.getItem("scores"));
+}
+
+
+
 var questionData = [
 
     {
@@ -86,9 +92,9 @@ var timeInterval = setInterval(function() {
   }, 1000); // set 1 second interval //
 
   // function for saving highscore
-  function saveHighScore() {
+  function saveScore() {
    
-    let newHighScore = {
+    var newHighScore = {
         initials: initial.value,
         highScore: score
     };
@@ -97,7 +103,7 @@ var timeInterval = setInterval(function() {
     console.log(highScores);
     localStorage.setItem("scores",JSON.stringify(highScores));
 }
-submit.addEventListener("click",saveHighScore);
+submit.addEventListener("click",saveScore);
 
 givenQuestion();
 };

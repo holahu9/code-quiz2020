@@ -223,10 +223,22 @@ span:hover{
 }
 
 
-@media screen and (max-width:480px){
+@media screen and (max-width: 780px) {
+    body{
+        background-position: center;
+    }
     .container{
-        width:100%;
+        width:90%;
     
+    }
+
+    .leftside{
+        
+        display: flex;
+        
+        justify-content: space-evenly;
+        margin: 10px 10px;
+       
     }
     .rightside h1 {
        

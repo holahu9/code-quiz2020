@@ -14,6 +14,8 @@ body{
     display:flex;
     justify-content: center; /* align items horizontally*/
     align-items:center; /* align items vertically*/
+
+   
 }
 
 .container {
@@ -28,8 +30,11 @@ body{
   
     color: white;
     display: flex;
+
+   
+    }
+
     
-}
 .leftside{
     width: 50%;
     margin-right: 30px;  
@@ -218,6 +223,56 @@ span:hover{
 }
 
 
+@media screen and (max-width:480px){
+    .container{
+        width:100%;
+    
+    }
+    .rightside h1 {
+       
+        font-size: large;
+    }
+    .rightside h3{
+        font-size: large;
+       
+     
+    }
+    
+    .rightside .start{
+        font-size: large;
+    }
+    
+    .leftside img{
+        width: 100px;
+        height:100px;     
+    }
+
+    .scoreBox, .timerBox{
+       display:flex; 
+      margin: 10px;
+      justify-content: space-evenly;
+
+
+    }
+
+    .box {
+        width:100%;
+        height:100vh;
+    }
+
+    .option { 
+        width:100%;
+        font-size: medium;
+        min-height: 100px;   
+        
+    }
+    
+    #A, #B, #C, #D{
+        min-width: 250px;
+        {
+
+    }
+}
 
 
 /*.btn{

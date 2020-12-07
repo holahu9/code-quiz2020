@@ -13,18 +13,20 @@ var initial = document.querySelector("#initials");
 var submit = document.querySelector("#submit");
 var highScores = [];
 
+
+//  to store and retrieve arrays in/from local storage
 if (JSON.parse(localStorage.getItem('scores')) !== null) {
     highScores = JSON.parse(localStorage.getItem("scores"));
 }
 
-
+//create a array containing objects (Q/A)
 
 var questionData = [
 
     {
         question: " What does COVID-19 stand for? ",
-        answerA: "It's a term for Coronavirus Disease 19, because it's the 19th strain of coronavirus discovered.",
-        answerB: "It's a term that stands for Coronavirus Disease 2019, the year it was first identified.",
+        answerA: "It's the 19th strain of coronavirus discovered.",
+        answerB: "It's a term that stands for Coronavirus Disease 2019.",
         answerC: "It's a common flue",
         answerD: "None of above",
         correct: "A",
@@ -71,10 +73,9 @@ var timeLeft = 90;
 // function to set the timer
 function quiz() {
 var min = 0;
-    var sec = 0;
-//var timeLeft = 90;
-
+var sec = 0;
 var counter = 0;
+
 var timeInterval = setInterval(function() {
     counter++;
     min= Math.floor((timeLeft-counter)/60);
@@ -128,7 +129,7 @@ function givenQuestion(){
 
 givenQuestion();
 
-// set index question =0 & revoke the function to display first question//
+// set index question = 0 & revoke the function to display first question//
 
 function runningQuestion(){
     for (var index=0; index<= questionData.length; index++){

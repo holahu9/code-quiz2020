@@ -21,7 +21,8 @@ THEN I can save my initials and score
 
 The following animation demonstrates the application functionality:
 
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
+
+![Screen Shot 2020-12-08 at 1 31 29 PM](https://user-images.githubusercontent.com/70487513/101525781-bc5cc100-3959-11eb-8dde-88176d547379.png)
 
 ![Screen Shot 2020-12-08 at 1 31 29 PM](https://user-images.githubusercontent.com/70487513/101525781-bc5cc100-3959-11eb-8dde-88176d547379.png)
 

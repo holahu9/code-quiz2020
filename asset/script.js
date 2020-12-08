@@ -69,7 +69,7 @@ var questionData = [
         correct:  "A",
     }
 ];
-var timeLeft = 90;
+var timeLeft = 60;
 // function to set the timer
 function quiz() {
 var min = 0;
@@ -85,7 +85,7 @@ var timeInterval = setInterval(function() {
 //update HTML 
     timer.textContent = "Time Left: " + min +":"+ sec;
 
-    if(timeLeft <= 0) {
+    if(min==0 && sec==0) {
       
        resultRender(); 
     }
@@ -131,18 +131,18 @@ givenQuestion();
 
 // set index question = 0 & revoke the function to display first question//
 
-function runningQuestion(){
+/*function runningQuestion(){
     for (var index=0; index<= questionData.length; index++){
 
     }
-}
+}*/
 
 
 var score = 0;
 function check(answer){
     
     var cAnswer = questionData[i].correct;
-if (answer == cAnswer && i < lastQuestion){
+if (answer == cAnswer && i < lastQuestion && timeLeft>0){
 
    
     score+=10;
@@ -153,10 +153,11 @@ if (answer == cAnswer && i < lastQuestion){
 }
 
 else if 
-    (answer !== cAnswer && i < lastQuestion){
+    (answer !== cAnswer && i < lastQuestion ){
         timeLeft -= 20;
         if (timeLeft < 0) {
-            timeLeft = 0;
+            timeLeft=0;
+            resultRender();
         }
         score -= 10;
         scores.textContent = "score: " + score ;

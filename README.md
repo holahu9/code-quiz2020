@@ -8,7 +8,7 @@ WHEN I click the start button
 THEN a timer starts and I am presented with a question
 WHEN I answer a question
 THEN I am presented with another question
-WHEN I answer a question incorrectly, Score will subtract from Score (-10)
+WHEN I answer a question incorrectly, Score will be subtracted from Score (-10)
 THEN time is subtracted from the clock (-20 seconds)
 WHEN all questions are answered or the timer reaches 0
 THEN the game is over
@@ -21,4 +21,4 @@ THEN I can save my initials and score
 
 The following animation demonstrates the application functionality:
 
-![code quiz](./Assets/04-web-apis-homework-demo.gif)
+deployed app :  https://holahu9.github.io/code-quiz2020

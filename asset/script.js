@@ -85,7 +85,7 @@ var timeInterval = setInterval(function() {
 //update HTML 
     timer.textContent = "Time Left: " + min +":"+ sec;
 
-    if(min==0 && sec==0) {
+    if(timeLeft<=0 || min==0 && sec==0) {
       
        resultRender(); 
     }
@@ -142,23 +142,26 @@ var score = 0;
 function check(answer){
     
     var cAnswer = questionData[i].correct;
-if (answer == cAnswer && i < lastQuestion && timeLeft>0){
+if (answer == cAnswer && i < lastQuestion){
 
    
     score+=10;
     scores.textContent = "score: " + score ;
     i++;
     givenQuestion();
+    
+    
 
 }
 
 else if 
     (answer !== cAnswer && i < lastQuestion ){
         timeLeft -= 20;
-        if (timeLeft < 0) {
+        if (timeLeft <= 0) {
             timeLeft=0;
             resultRender();
         }
+        
         score -= 10;
         scores.textContent = "score: " + score ;
         i++;

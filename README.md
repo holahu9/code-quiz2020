@@ -24,7 +24,7 @@ The following animation demonstrates the application functionality:
 ![code quiz](./Assets/04-web-apis-homework-demo.gif)
 
 
-![Screen Shot 2020-12-08 at 1 06 33 PM](https://user-images.githubusercontent.com/70487513/101524981-abf81680-3958-11eb-90f7-da4771999ce4.png)
+
 ![Screen Shot 2020-12-08 at 1 07 10 PM](https://user-images.githubusercontent.com/70487513/101524990-ae5a7080-3958-11eb-8057-88199b58776a.png)
 
 

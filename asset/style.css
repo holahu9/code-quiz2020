@@ -222,6 +222,21 @@ span:hover{
     border-radius: 20px;
 }
 
+#display a, #clear-btn {
+    text-decoration: none;
+    padding: 10px 10px;
+    border: 1px solid green;
+    border-radius: 20px;
+    background-color:#ed3e95 ;
+    box-shadow: 0 15px 25px rgba(163, 97, 53, 0.5);
+    color: white;
+    display: flex;
+    float: left;
+    align-items: center;
+    margin: 30px 10px ;
+
+}
+
 
 @media screen and (max-width: 780px) {
     body{

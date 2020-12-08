@@ -89,7 +89,7 @@ function quiz() {
        
     
     //update HTML 
-        timer.textContent = 'Time Left:' + min +":"+ sec;
+        timer.textContent = "Time Left: " + min + ":"+ sec;
     
         if(timeLeft<=0 || min===0 && sec===0) {
            

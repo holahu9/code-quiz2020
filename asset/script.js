@@ -173,15 +173,17 @@ submit.addEventListener("click",function saveScore(){
 
    // create an object to store name & score
     var newHighScore = {
-        name: initial.value,
+        userName: initial.value,
         highScore: score
     };
     console.log(newHighScore);
     highScores.push(newHighScore); // push the object to the empty array (highScores)
     console.log(highScores); 
     localStorage.setItem("scores",JSON.stringify(highScores));
-   
+    
 });
+
+
 
 
 

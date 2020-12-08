@@ -275,14 +275,20 @@ span:hover{
     .option { 
         width:100%;
         font-size: medium;
-        min-height: 100px;   
+        min-height: 100px;  
+         
         
     }
     
-    #A, #B, #C, #D{
+    .choice{
         min-width: 250px;
-        {
+       
+    }
 
+    .option span{
+        padding: 2px 2px;
+        text-align: center;
+        font-size: large;
     }
 }
 

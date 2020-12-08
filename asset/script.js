@@ -91,12 +91,12 @@ function quiz() {
     //update HTML 
         timer.textContent = 'Time Left:' + min +":"+ sec;
     
-        if(timeLeft<=0 || min==0 && sec==0) {
+        if(timeLeft<=0 || min===0 && sec===0) {
            
            result(); 
         }
       }, 1000); // set 1 second interval //
-    };
+}
 
  // set index question i = 0 & revoke the function to display first question// 
 //Generate the first question from the array
@@ -185,22 +185,19 @@ submit.addEventListener("click",function saveScore(){
 
 
 
-
-
-/*function generateHighscores(){
-    highscoreDisplayName.innerHTML = "";
-    highscoreDisplayScore.innerHTML = "";
+function showHighScore(){
     var highscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
-    for (i=0; i<highscores.length; i++){
+   
+    for (i=0; i<  highscores.length; i++){
         var newName = document.createElement("li");
         var newScore = document.createElement("li");
-        newName.textContent = highscores[i].initials;
+        newName.textContent = highscores[i].userName;
         newScore.textContent = highscores[i].highscore;
         highscores.appendChild(newName);
         highscores.appendChild(newScore);
-    }*/
+    }
     
-
+}
 
 
 

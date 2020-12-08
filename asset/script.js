@@ -12,7 +12,7 @@ var finalScore = document.querySelector(".finalScore");
 var initial = document.querySelector("#initials");
 var submit = document.querySelector("#submit");
 var highScores = [];
-
+var timeInterval;
 
 //  to store and retrieve arrays in/from local storage
 if (JSON.parse(localStorage.getItem('scores')) !== null) {
@@ -69,67 +69,55 @@ var questionData = [
         correct:  "A",
     }
 ];
+
+
 var timeLeft = 60;
-// function to set the timer
+
+// function to start the quiz
 function quiz() {
-var min = 0;
-var sec = 0;
-var counter = 0;
 
-var timeInterval = setInterval(function() {
-    counter++;
-    min= Math.floor((timeLeft-counter)/60);
-    sec= timeLeft - min*60 - counter;
-   
+    givenQuestion(); // function to generate the questions
 
-//update HTML 
-    timer.textContent = "Time Left: " + min +":"+ sec;
-
-    if(timeLeft<=0 || min==0 && sec==0) {
-      
-       resultRender(); 
-    }
-  }, 1000); // set 1 second interval //
-
-  // function for saving highscore
-  function saveScore() {
-   
-    var newHighScore = {
-        initials: initial.value,
-        highScore: score
+    var min = 0;
+    var sec = 0;
+    var counter = 0;
+    // function to set the timer
+    timeInterval = setInterval(function() {
+        counter++;
+        min= Math.floor((timeLeft-counter)/60);
+        sec= timeLeft - min*60 - counter;
+       
+    
+    //update HTML 
+        timer.textContent = 'Time Left:' + min +":"+ sec;
+    
+        if(timeLeft<=0 || min==0 && sec==0) {
+           
+           result(); 
+        }
+      }, 1000); // set 1 second interval //
     };
-    console.log(newHighScore);
-    highScores.push(newHighScore);
-    console.log(highScores);
-    localStorage.setItem("scores",JSON.stringify(highScores));
-}
-submit.addEventListener("click",saveScore);
 
-givenQuestion();
-};
- 
-
-  
+ // set index question i = 0 & revoke the function to display first question// 
 //Generate the first question from the array
 
 var i = 0; // index of the first question//
 var lastQuestion = questionData.length-1; // index of the last question//
 
+
 // create a function that render a given question
 function givenQuestion(){
-    var quest = questionData[i] ; //access to questionData array to get the first question with index i=0//
-
+   
+    
+    var quest = questionData[i] ; //access to properties of questionData array to get the first question with index i=0//
+   
     //update HTML 
-    question.innerHTML = "<h2>" + quest.question + "</h2>";
+    question.innerHTML = "<h2>"+ quest.question + "</h2>";
     answerA.innerHTML = "<span>" + quest.answerA + "</span>";
     answerB.innerHTML = "<span>" + quest.answerB + "</span>";
     answerC.innerHTML = "<span>" + quest.answerC + "</span>";
     answerD.innerHTML = "<span>" + quest.answerD + "</span>";
 }
-
-givenQuestion();
-
-// set index question = 0 & revoke the function to display first question//
 
 /*function runningQuestion(){
     for (var index=0; index<= questionData.length; index++){
@@ -137,54 +125,83 @@ givenQuestion();
     }
 }*/
 
-
-var score = 0;
+// function to check the answers
+var score = 0; // set score = 0;
 function check(answer){
-    
+// access to the property "correct" to get the answers
     var cAnswer = questionData[i].correct;
-if (answer == cAnswer && i < lastQuestion){
-
-   
-    score+=10;
+if (answer == cAnswer && i !== lastQuestion){
+    score+=10;  // score +10 if the answer is correct
     scores.textContent = "score: " + score ;
-    i++;
+    i++; // generate the next question
     givenQuestion();
-    
-    
-
 }
-
 else if 
-    (answer !== cAnswer && i < lastQuestion ){
-        timeLeft -= 20;
-        if (timeLeft <= 0) {
-            timeLeft=0;
-            resultRender();
-        }
-        
-        score -= 10;
-        scores.textContent = "score: " + score ;
+    (answer !== cAnswer && i !== lastQuestion ){
+        timeLeft -= 20; //time -20 seconds if the answer is incorrect
+        score -= 10; //score -10 if the answer incorrect
+        scores.textContent = "score: " + score ; // update score
         i++;
         givenQuestion();
     }
 
     
-    else{ resultRender();
-        box.style.display = "none"
+    else if (answer == cAnswer && i == lastQuestion){
+        score+=10;  // score +10 if the answer is correct
+        result();
+    }
+    
+    else {
+        score-=10;
+        result();
+    }
         // end the quiz and show the score
        
-        
-    }
 }
 
-
-
-function resultRender(){
+function result(){
    
     box.style.display= "none";
     box1.style.display = "block";
     finalScore.innerHTML = "Your Final Score is : "  +  score;
     
     }
+
+submit.addEventListener("click",function saveScore(){
+
+// function for saving highscore
+
+   // create an object to store name & score
+    var newHighScore = {
+        name: initial.value,
+        highScore: score
+    };
+    console.log(newHighScore);
+    highScores.push(newHighScore); // push the object to the empty array (highScores)
+    console.log(highScores); 
+    localStorage.setItem("scores",JSON.stringify(highScores));
+   
+});
+
+
+
+/*function generateHighscores(){
+    highscoreDisplayName.innerHTML = "";
+    highscoreDisplayScore.innerHTML = "";
+    var highscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
+    for (i=0; i<highscores.length; i++){
+        var newName = document.createElement("li");
+        var newScore = document.createElement("li");
+        newName.textContent = highscores[i].initials;
+        newScore.textContent = highscores[i].highscore;
+        highscores.appendChild(newName);
+        highscores.appendChild(newScore);
+    }*/
+    
+
+
+
+
+
 quiz();
 
